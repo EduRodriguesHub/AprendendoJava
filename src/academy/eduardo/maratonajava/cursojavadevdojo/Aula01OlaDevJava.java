@@ -1,4 +1,4 @@
-package academy.eduardo.maratonajava.introducao;
+package academy.eduardo.maratonajava.cursojavadevdojo;
 /**
  * isso é um comentário
  */

@@ -1,4 +1,4 @@
-package academy.eduardo.maratonajava.exercicios;
+package academy.eduardo.maratonajava.exerciciosufrm;
 
 public class MediaDoAluno {
     public static void main(String[] args) {

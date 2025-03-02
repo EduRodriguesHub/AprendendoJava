@@ -1,4 +1,4 @@
-package academy.eduardo.maratonajava.exercicios;
+package academy.eduardo.maratonajava.exerciciosufrm;
 import java.util.Scanner;
 
 public class ValorIPIAcrescido {

@@ -1,4 +1,4 @@
-package academy.eduardo.maratonajava.introducao;
+package academy.eduardo.maratonajava.aulasufrn;
 
 public class TiposDeVariaveis {
     public static void main(String[] args) {
