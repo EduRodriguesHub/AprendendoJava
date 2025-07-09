@@ -50,8 +50,11 @@ class ListaConvidadosCasamento {
                 System.out.println(removido + " removido com sucesso!");
                 System.out.println("_________________________");
                 Thread.sleep(1000);
-            }
+            }else if (finalizador == 4){
             System.out.println("Até mais!");
+
+            //Próximos passos: usar POO, melhorar a estética do código;
+            }
         }   
     }
 }
