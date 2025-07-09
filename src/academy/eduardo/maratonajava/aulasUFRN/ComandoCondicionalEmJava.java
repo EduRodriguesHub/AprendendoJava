@@ -1,4 +1,4 @@
-package academy.eduardo.maratonajava.aulasufrn;
+package academy.eduardo.maratonajava.aulasUFRN;
 
 import java.util.Scanner;
 
