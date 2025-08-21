@@ -1,5 +1,5 @@
 //AUTOR: Eduardo Rodrigues
-//Data: 
+//Data: 20/08/2025
 
 package academy.eduardo.projetosProprios.main;
 import java.util.Scanner;
@@ -15,17 +15,30 @@ class ListaConvidadosCasamento {
         int finalizador = 0;
 
         System.out.println("Olá");
+
         while (true) {
             if (finalizador == 4){
                 break;
             }
-            System.out.println("_________________________");
-            System.out.println("Escolha uma opção: \n1-Adicionar novo convidado  \n2-mostrar convidados" + 
-                                "\n3-remover convidado \n4-sair");
-            System.out.println("_________________________");
-            String escolha = sc.nextLine();
-            finalizador = Integer.parseInt(escolha);
-
+            int escolha;
+            while (true) {
+                try {
+                System.out.println("_________________________");
+                System.out.println("Escolha uma opção: \n1-Adicionar novo convidado  \n2-mostrar convidados" + 
+                                    "\n3-remover convidado \n4-sair");
+                System.out.println("_________________________");
+                escolha = Integer.parseInt(sc.nextLine());
+                finalizador = escolha;
+                if (escolha >= 1 && escolha <= 4){  
+                    break;
+                }else{
+                    System.out.println("\nNúmero não está na lista!");
+                }
+                } catch (NumberFormatException e) {
+                System.out.println("\nOpção inválida");
+                }
+            }
+            
             switch (finalizador) {
                 case 1:
                     Thread.sleep(1000);
@@ -56,6 +69,7 @@ class ListaConvidadosCasamento {
                     System.out.println(removido + " removido com sucesso!");
                     System.out.println("_________________________");
                     Thread.sleep(1000);
+                    break;
                 case 4:
                     System.out.println("Até mais");
                 default:
