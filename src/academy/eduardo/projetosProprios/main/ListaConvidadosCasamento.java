@@ -8,14 +8,20 @@ import academy.eduardo.projetosProprios.domain.ListaConvidados;
 
 class ListaConvidadosCasamento {
     public static void main(String[] args) throws InterruptedException { // Permite que o método lance exceção se Thread.sleep for interrompido
-        ListaConvidados listaConvidados = new ListaConvidados();
-
+        
         Scanner sc = new Scanner(System.in);
         
         int finalizador = 0;
-
+        
         System.out.println("Olá");
+        
+        System.out.println("Adicione o nome da noiva: ");
+        String nomeNoiva = sc.nextLine();
+        System.out.println("Adicione o nome do noivo: ");
+        String nomeNoivo = sc.nextLine();
 
+        ListaConvidados listaConvidados = new ListaConvidados(nomeNoivo, nomeNoiva);
+        
         while (true) {
             if (finalizador == 4){
                 break;
@@ -45,9 +51,12 @@ class ListaConvidadosCasamento {
                     System.out.println("_________________________");
                     System.out.println("Adicione o nome do convidado: ");
                     String nomeConvidado = sc.nextLine();
+                    if (listaConvidados.getLista().contains(nomeConvidado)) {
+                        System.out.println(nomeConvidado + " Já está na lista");
+                        break;
+                    }
                     listaConvidados.add(nomeConvidado);
                     Thread.sleep(1000);
-                    System.out.println(nomeConvidado + " adicionado com sucesso !");
                     System.out.println("_________________________");
                     Thread.sleep(1000);
                     break;
@@ -65,6 +74,13 @@ class ListaConvidadosCasamento {
                     System.out.println("_________________________");
                     System.out.println("Escolha o convidado que deseja remover:");
                     String removido = sc.nextLine();
+                    if (listaConvidados.getLista().contains(removido) == false){
+                        System.out.println("Convidado não está na lista");
+                        break;
+                    }else if (removido.equals(nomeNoiva) || removido.equals(nomeNoivo) ){
+                        System.out.println("Noivos não podem ser retirados do casamento.");
+                        break;
+                    }
                     listaConvidados.remove(removido);
                     System.out.println(removido + " removido com sucesso!");
                     System.out.println("_________________________");
