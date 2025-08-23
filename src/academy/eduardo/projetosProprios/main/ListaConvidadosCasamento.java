@@ -17,8 +17,16 @@ class ListaConvidadosCasamento {
         
         System.out.println("Adicione o nome da noiva: ");
         String nomeNoiva = sc.nextLine();
+        while (nomeNoiva.isBlank()){
+            System.out.println("Não pode ser vazio, digite novamente: ");
+            nomeNoiva = sc.nextLine();
+        }
         System.out.println("Adicione o nome do noivo: ");
         String nomeNoivo = sc.nextLine();
+        while (nomeNoivo.isBlank()){
+            System.out.println("Não pode ser vazio, digite novamente: ");
+            nomeNoivo = sc.nextLine();
+        }
 
         ListaConvidados listaConvidados = new ListaConvidados(nomeNoivo, nomeNoiva);
         
@@ -51,6 +59,10 @@ class ListaConvidadosCasamento {
                     System.out.println("_________________________");
                     System.out.println("Adicione o nome do convidado: ");
                     String nomeConvidado = sc.nextLine();
+                    while (nomeConvidado.isBlank()){
+                        System.out.println("Não pode ser vazio, digite novamente: ");
+                        nomeConvidado = sc.nextLine();
+                    }
                     if (listaConvidados.getLista().contains(nomeConvidado)) {
                         System.out.println(nomeConvidado + " Já está na lista");
                         break;
@@ -74,17 +86,29 @@ class ListaConvidadosCasamento {
                     System.out.println("_________________________");
                     System.out.println("Escolha o convidado que deseja remover:");
                     String removido = sc.nextLine();
-                    if (listaConvidados.getLista().contains(removido) == false){
-                        System.out.println("Convidado não está na lista");
-                        break;
-                    }else if (removido.equals(nomeNoiva) || removido.equals(nomeNoivo) ){
+                    if (removido.equalsIgnoreCase(nomeNoiva) || removido.equalsIgnoreCase(nomeNoivo) ){
                         System.out.println("Noivos não podem ser retirados do casamento.");
                         break;
                     }
-                    listaConvidados.remove(removido);
-                    System.out.println(removido + " removido com sucesso!");
-                    System.out.println("_________________________");
-                    Thread.sleep(1000);
+
+                    String convidadoEncontrado = null;
+                    for (String convidadoNaLista : listaConvidados.getLista() ){
+                        if(removido.equalsIgnoreCase(convidadoNaLista)){
+                            convidadoEncontrado = convidadoNaLista;
+                            break;
+                        }
+                    }
+
+                    if (convidadoEncontrado != null){
+                        listaConvidados.remove(convidadoEncontrado);
+                        System.out.println(convidadoEncontrado + " removido com sucesso");
+                        System.out.println("_________________________");
+                        Thread.sleep(1000);
+                        break;
+                    }else{
+                        System.out.println("Convidado Não encontrado!");
+                        Thread.sleep(1000);
+                    }
                     break;
                 case 4:
                     System.out.println("Até mais");
